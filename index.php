@@ -29,5 +29,11 @@
         <tr><td><input type="submit" name="submit" value="Submit"></td></tr>
       </table>
     </form>
+    <?php
+      $query = mysqli_query($con,"SELECT * FROM comment ORDER BY id DESC");
+      foreach ($query as $key) {
+        echo $key['name'] . '<br>' . $key['comment'] . '<br>' . '<br>';
+      }
+     ?>
   </body>
 </html>
