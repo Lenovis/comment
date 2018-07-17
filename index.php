@@ -57,14 +57,14 @@ https://www.webslesson.info/2017/12/comments-system-using-php-and-ajax.html
           if(data.error != ''){
             $('#comment_form')[0].reset();
             $('#comment_message').html(data.error);
-            /*$('#comment_id').val('0');
-            load_comment();*/
+            $('#comment_id').val('0');
+            load_comment();
           }
         }
       })
     });
 
-  /*load_comment();
+  load_comment();
 
   function load_comment(){
     $.ajax({
@@ -80,7 +80,7 @@ https://www.webslesson.info/2017/12/comments-system-using-php-and-ajax.html
     var comment_id = $(this).attr("id");
     $('#comment_id').val(comment_id);
     $('#comment_email').focus();
-  });*/
+  });
 
 });
 </script>
