@@ -4,7 +4,6 @@ Martynas Petruška
 Didelis pagalbos saltinis:
 https://www.webslesson.info/2017/12/comments-system-using-php-and-ajax.html
 */
-
 $connect = new PDO('mysql:host=localhost;dbname=comment', 'root', '');
 
 $error = '';
@@ -13,19 +12,19 @@ $comment_name = '';
 $comment_content = '';
 
 if(empty($_POST["comment_email"])){
-  $error .= '<p class="text-danger">Email is required!</p>'
+  $error .= '<p class="text-danger">Email is required!</p>';
 }else {
   $comment_email = $_POST["comment_email"];
 }
 
 if(empty($_POST["comment_name"])){
-  $error .= '<p class="text-danger">Name is required!</p>'
+  $error .= '<p class="text-danger">Name is required!</p>';
 }else {
   $comment_name = $_POST["comment_name"];
 }
 
 if(empty($_POST["comment_content"])){
-  $error .= '<p class="text-danger">Content is required!</p>'
+  $error .= '<p class="text-danger">Content is required!</p>';
 }else {
   $comment_content = $_POST["comment_content"];
 }

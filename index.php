@@ -19,11 +19,11 @@ https://www.webslesson.info/2017/12/comments-system-using-php-and-ajax.html
     <br>
 
     <div class="container">
-      <form method="post" id="comment_form">
+      <form method="POST" id="comment_form">
 
         <div class="form-group">
-          <input type="email" name="comment_email" id="comment_email" class="form_control" placeholder="example@example.com"/>
-          <input type="name" name="comment_name" id="comment_name" class="form_control" placeholder="Your name here"/>
+          <input type="email" name="comment_email" id="comment_email" class="form-control" placeholder="example@example.com"/>
+          <input type="name" name="comment_name" id="comment_name" class="form-control" placeholder="Your name here"/>
         </div>
 
         <div class="form-group">
@@ -32,7 +32,8 @@ https://www.webslesson.info/2017/12/comments-system-using-php-and-ajax.html
 
         <div class="form-group">
           <input type="hidden" name="comment_id" value="0" id="comment_id"/>
-          <input type="submit" name="submit" value="Submit" id="submit" class="btn btn-info"/>
+          <input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />
+    </div>
         </div>
       </form>
       <span id="comment_message"></span>
@@ -45,30 +46,30 @@ https://www.webslesson.info/2017/12/comments-system-using-php-and-ajax.html
 <script>
   $(document).ready(function(){
     $('#comment_form').on('submit', function(event){
-      event.preventDefoult();
-      var form_data = $(this).serialize();
+      event.preventDefault(); //reikalingas kad neperkrautu puslapio
+      var form_data = $(this).serialize(); //reikalingas uzkoduoti duomenis
       $.ajax({
-        url:"add_comment.php";
-        method:"POST";
-        data:form_data;
-        dataType:"JSON";
+        url:"add_comment.php",
+        method:"POST",
+        data:form_data,
+        dataType:"JSON",
         success:function(data){
           if(data.error != ''){
-            $('comment_form')[0].reset();
-            $('comment_message').html(data.error);
-            $('comment_id').val('0');
-            load_comment();
+            $('#comment_form')[0].reset();
+            $('#comment_message').html(data.error);
+            /*$('#comment_id').val('0');
+            load_comment();*/
           }
         }
       })
-    })
+    });
 
-  load_comment();
+  /*load_comment();
 
   function load_comment(){
     $.ajax({
-      url:"fetch_comment.php";
-      method:"POST";
+      url:"fetch_comment.php",
+      method:"POST",
       success:function(data){
         $('#display_comment').html(data);
       }
@@ -79,7 +80,7 @@ https://www.webslesson.info/2017/12/comments-system-using-php-and-ajax.html
     var comment_id = $(this).attr("id");
     $('#comment_id').val(comment_id);
     $('#comment_email').focus();
-  });
+  });*/
 
 });
 </script>
