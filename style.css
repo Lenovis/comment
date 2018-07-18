@@ -1,5 +1,9 @@
-textarea{
-  width: 400px;
-  height: 80px;
-  resize: none;
+#phl{
+  display: inline-block;
+  width: 50%;
+}
+#phr{
+  display: inline-block;
+  width: 50%;
+  
 }
