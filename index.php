@@ -33,7 +33,6 @@ https://www.webslesson.info/2017/12/comments-system-using-php-and-ajax.html
         <div class="form-group">
           <input type="hidden" name="comment_id" value="0" id="comment_id"/>
           <input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />
-    </div>
         </div>
       </form>
       <span id="comment_message"></span>
