@@ -25,9 +25,9 @@ foreach($result as $row){
           <button type="button" class="btn btn-default reply" id="'.$row["id"].'">Reply</button>
         </div>
       </div>
-    <div class="panel-body">'.$row["comment"].'</div>
-    </div>
-  ';
+    <div class="panel-body">'.$row["comment"].'</div>';
+
+    $output .= '</div>';
   $output .= get_reply_comment($connect, $row["id"]);
 }
 
@@ -35,7 +35,7 @@ echo $output;
 
 function get_reply_comment($connect, $parent_id = 0, $marginleft = 0){
   $query = "SELECT * FROM comment WHERE parent_id = '".$parent_id."'";
-
+  include'replyForm.php';
   $output = '';
   $statement = $connect->prepare($query);
   $statement->execute();

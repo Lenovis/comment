@@ -14,30 +14,15 @@ https://www.webslesson.info/2017/12/comments-system-using-php-and-ajax.html
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
   </head>
   <body>
     <hr>
     <h1 align="center">Comment form</h1>
     <hr>
     <br>
-
     <div class="container">
-      <form method="POST" id="comment_form">
-
-        <div class="form-group">
-          <input type="email" name="comment_email" id="comment_email" class="form-control" placeholder="example@example.com"/>
-          <input type="name" name="comment_name" id="comment_name" class="form-control" placeholder="Your name here"/>
-        </div>
-
-        <div class="form-group">
-          <textarea name="comment_content" id="comment_content" class="form-control" rows="5"></textarea>
-        </div>
-
-        <div class="form-group">
-          <input type="hidden" name="comment_id" value="0" id="comment_id"/>
-          <input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />
-        </div>
-      </form>
+      <?php include'commentForm.php';?>
       <span id="comment_message"></span>
       <br>
       <div id="display_comment"></div>
@@ -46,7 +31,7 @@ https://www.webslesson.info/2017/12/comments-system-using-php-and-ajax.html
 </html>
 
 <script>
-  $(document).ready(function(){
+  $(document).ready(function(){//Si eilute reikalinga tam, kad scriptas butu paleistas tada tikkai visas puslapis uzkrautas.
     $('#comment_form').on('submit', function(event){
       event.preventDefault(); //reikalingas kad neperkrautu puslapio
       var form_data = $(this).serialize(); //reikalingas uzkoduoti duomenis
@@ -82,7 +67,10 @@ https://www.webslesson.info/2017/12/comments-system-using-php-and-ajax.html
     var comment_id = $(this).attr("id");
     $('#comment_id').val(comment_id);
     $('#comment_email').focus();
+    //$('#comment_form').hide(500);
+    //$('#reply_form').show(500);
   });
 
 });
+
 </script>

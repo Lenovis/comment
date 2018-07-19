@@ -5,5 +5,8 @@
 #phr{
   display: inline-block;
   width: 50%;
-  
+
+}
+#reply_form{
+  display:none;
 }
